@@ -1,0 +1,114 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>ViewSew </title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href={% static "css/main.css" %}>
+    <link rel="stylesheet" href={% static "css/util.css" %}>
+<!--===============================================================================================-->
+	<link rel="icon" type="image/png" href={% static "images/icons/favicon.png"%}>
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href={% static "vendor/bootstrap/css/bootstrap.min.css" %}>
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href={% static "fonts/font-awesome-4.7.0/css/font-awesome.min.css"%}>
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href={% static "fonts/iconic/css/material-design-iconic-font.min.css"%}>
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href={% static "fonts/linearicons-v1.0.0/icon-font.min.css" %}>
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href={% static "vendor/animate/animate.css"%}>
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href={% static "vendor/css-hamburgers/hamburgers.min.css"%}>
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href={% static "vendor/animsition/css/animsition.min.css"%}>
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href={% static "vendor/select2/select2.min.css" %}>
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href={% static "vendor/daterangepicker/daterangepicker.css" %}>
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href={% static "vendor/slick/slick.css" %}>
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href={% static "vendor/MagnificPopup/magnific-popup.css"%}>
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href={% static "vendor/perfect-scrollbar/perfect-scrollbar.css"%}>
+<!--===============================================================================================-->
+
+</head>
+<body >
+
+
+ <section class="bg0 p-t-104 p-b-116" >
+		<div class="container" style="margin-left: 30%;">
+			<div class="flex-w flex-tr" >
+				<div class="size-210 bor10 p-lr-70 p-t-55 p-b-70 p-lr-15-lg w-full-md">
+					<form method="post" enctype="multipart/form-data" action="{% url 'VendorPanel:register' %} " >
+
+
+
+                       {% csrf_token %}
+                    		<h4 class="mtext-105 cl2 txt-center p-b-30">
+							Vendor Registration Page
+						</h4>
+
+							<table >
+								<tr class="column-1">
+                                        <b> Name</b> <div class="bor8 m-b-20 how-pos4-parent">
+                                            <input class="stext-111 cl2 plh3 size-116 p-l-62 p-r-30" type="text" name="name" placeholder="Full Name">
+                                            <!-- <img class="how-pos4 pointer-none" src="images/icons/icon-email.png" alt="ICON"> -->
+                                        </div>
+
+                                        <b> Mobile No </b> <div class="bor8 m-b-20 how-pos4-parent">
+                                            <input class="stext-111 cl2 plh3 size-116 p-l-62 p-r-30" type="number" name="mobile" placeholder="Enter your number">
+                                            <!-- <img class="how-pos4 pointer-none" src="images/icons/icon-email.png" alt="ICON"> -->
+                                        </div>
+
+                                        <b>Address</b> <div class="bor8 m-b-30">
+                                            <textarea class="stext-111 cl2 plh3 size-120 p-lr-28 p-tb-25" name="address" placeholder="Enter Boutique Address"></textarea>
+                                        </div>
+
+                                        <b> Pincode </b> <div class="bor8 m-b-20 how-pos4-parent">
+                                            <input class="stext-111 cl2 plh3 size-116 p-l-62 p-r-30" type="text" name="pincode" placeholder="Area Pincode">
+                                            <!-- <img class="how-pos4 pointer-none" src="images/icons/icon-email.png" alt="ICON"> -->
+                                        </div>
+                                </tr>
+
+                                <tr class="column-2">
+
+                                        <b> City </b> <div class="bor8 m-b-20 how-pos4-parent">
+                                            <input class="stext-111 cl2 plh3 size-116 p-l-62 p-r-30" type="text" name="city" placeholder="Boutique City">
+                                            <!-- <img class="how-pos4 pointer-none" src="images/icons/icon-email.png" alt="ICON"> -->
+                                        </div>
+
+                                        <b> State </b> <div class="bor8 m-b-20 how-pos4-parent">
+                                            <input class="stext-111 cl2 plh3 size-116 p-l-62 p-r-30" type="text" name="state" placeholder="Boutique state">
+                                            <!-- <img class="how-pos4 pointer-none" src="images/icons/icon-email.png" alt="ICON"> -->
+                                        </div>
+
+                                        <b> Landmark </b> <div class="bor8 m-b-20 how-pos4-parent">
+                                            <input class="stext-111 cl2 plh3 size-116 p-l-62 p-r-30" type="text" name="landmark" placeholder="Near by any famous place">
+                                            <!-- <img class="how-pos4 pointer-none" src="images/icons/icon-email.png" alt="ICON"> -->
+                                        </div>
+
+                                        <b> Post Office </b> <div class="bor8 m-b-20 how-pos4-parent">
+                                            <input class="stext-111 cl2 plh3 size-116 p-l-62 p-r-30" type="text" name="post_office" placeholder="Post office detail">
+                                            <!-- <img class="how-pos4 pointer-none" src="images/icons/icon-email.png" alt="ICON"> -->
+                                        </div>
+                                 </tr>
+                                        <button class="flex-c-m stext-101 cl0 size-121 bg3 bor1 hov-btn3 p-lr-15 trans-04 pointer">
+                                            Submit
+                                        </button>
+                            </table>
+
+					</form>
+				</div>
+
+
+			</div>
+		</div>
+	</section>
+
+</body>

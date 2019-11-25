@@ -1,0 +1,46 @@
+{% extends 'admin/layout/base.html' %}
+{% load staticfiles %}
+
+
+{% block content %}
+<section class="bg0 p-t-104 p-b-116">
+		<div class="container" style="margin-left: 30%;">
+			<div class="flex-w flex-tr">
+				<div class="size-210 bor10 p-lr-70 p-t-55 p-b-70 p-lr-15-lg w-full-md">
+					<form method="post" enctype="multipart/form-data" action="{% url 'AdminPanel:category_update' %} ">
+                        {% csrf_token %}
+           						<h4 class="mtext-105 cl2 txt-center p-b-30">
+							Edit Category
+						</h4>
+
+						<b> Dress code</b>  <div class="bor8 m-b-20 how-pos4-parent">
+                        <input class="stext-111 cl2 plh3 size-116 p-l-62 p-r-30" type="text" name="code" value="{{ result.dress_code }}">
+
+						</div>
+
+                        <b>Type of wear </b><div class="bor8 m-b-20 how-pos4-parent">
+							<input class="stext-111 cl2 plh3 size-116 p-l-62 p-r-30" type="text" name="type" value="{{ result.type_of_wear }}">
+
+						</div>
+                             <input type="hidden" class="form-control"  name="id" value="{{ result.id }}">
+
+
+					<!-- Your Description:-<div class="bor8 m-b-30">
+							<textarea class="stext-111 cl2 plh3 size-120 p-lr-28 p-tb-25" name="msg" placeholder="How Can We Help?"></textarea>
+						</div>
+
+						Your Image :-<input class="stext-111 cl2 plh3 size-116 p-l-62 p-r-30" type="file" name="image" placeholder="Your Email Address"> -->
+
+						<button class="flex-c-m stext-101 cl0 size-121 bg3 bor1 hov-btn3 p-lr-15 trans-04 pointer">
+							Submit
+						</button>
+					</form>
+				</div>
+
+
+			</div>
+		</div>
+	</section>
+
+
+{% endblock %}

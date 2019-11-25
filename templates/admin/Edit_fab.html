@@ -1,0 +1,61 @@
+{% extends 'admin/layout/base.html' %}
+{% load staticfiles %}
+
+{% block content %}
+
+    <section class="bg0 p-t-104 p-b-116">
+		<div class="container" style="margin-left: 30%;">
+			<div class="flex-w flex-tr">
+				<div class="size-210 bor10 p-lr-70 p-t-55 p-b-70 p-lr-15-lg w-full-md">
+					<form method="post" enctype="multipart/form-data" action="{% url 'AdminPanel:fab_update' %}">
+
+                       {% csrf_token %}
+                    		<h4 class="mtext-105 cl2 txt-center p-b-30">
+							Edit Fabric
+						</h4>
+
+
+                        <div class="how-itemcart1">
+                                   <img src="../../media/{{ result.fabrics_type }}" alt="IMG">
+                        </div>
+
+                        <b>Image </b> <input class="stext-111 cl2 plh3 size-116 p-l-62 p-r-30" type="file" name="design" value="{{ result.fabrics_type }}" placeholder="Upload image">
+
+                        <br/>
+						<b> Price</b> <div class="bor8 m-b-20 how-pos4-parent">
+							<input class="stext-111 cl2 plh3 size-116 p-l-62 p-r-30" type="number" name="price" value="{{ result.fabrics_price }}">
+							<!-- <img class="how-pos4 pointer-none" src="images/icons/icon-email.png" alt="ICON"> -->
+						</div>
+
+					    <b>Description</b> <div class="bor8 m-b-30">
+							<textarea class="stext-111 cl2 plh3 size-120 p-lr-28 p-tb-25" name="description" >{{ result.fabrics_description }}</textarea>
+						</div>
+
+                           <input type="hidden" class="form-control"  name="id" value="{{ result.id }}">
+                         <b>Design Category </b>
+                              <div class="stext-111 cl2 plh3 size-116 p-l-62 p-r-30">
+                                  <br/>
+                                  <select name="category_type" id="category_type" required>
+                                            <option value="none" selected disabled hidden>Select an Option</option>
+                                            {% for data in type %}
+                                                <option >{{ data.fabric_id }} - {{ data.fabric_name }}</option>
+
+                                            {% endfor %}
+                                  </select>
+                              </div>
+                         <br/>
+						<button class="flex-c-m stext-101 cl0 size-121 bg3 bor1 hov-btn3 p-lr-15 trans-04 pointer">
+							Submit
+						</button>
+
+
+					</form>
+				</div>
+
+
+			</div>
+		</div>
+	</section>
+
+
+{% endblock %}

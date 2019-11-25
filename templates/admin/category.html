@@ -1,0 +1,75 @@
+{% extends 'admin/layout/base.html' %}
+{% load staticfiles %}
+
+{% block content %}
+     <h1>{{ message }}</h1>
+	<!-- Shoping Cart -->
+	<form class="bg0 p-t-75 p-b-85" method="post" enctype="multipart/form-data" action="{% url 'AdminPanel:category' %} ">
+        {% csrf_token %}
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-10 col-xl-7 m-lr--55 m-b-50">
+					<div class="m-l-25 m-r--38 m-lr-0-xl">
+						<div class="wrap-table-shopping-cart">
+							<table class="table-shopping-cart">
+								<tr class="table_head">
+									<th class="column-1">Dress code</th>
+									<th class="column-2">Wear Type</th>
+                                    <th class="column-3">edit</th>
+
+								</tr>
+
+                                {% for data in result %}
+
+                                    <tr class="table_row" >
+
+                                        <td class="column-1">
+                                           {{ data.dress_code }}
+                                        </td>
+                                        <td class="column-2">
+                                          {{ data.type_of_wear }}
+                                        </td>
+
+                                        <td class="column-3"><a href="/admin/edit_category/{{ data.id }}">Update</a></td>
+                                    </tr>
+
+                                {% endfor %}
+
+							</table>
+						</div>
+
+					</div>
+				</div>
+
+				<div class="col-sm-10 col-lg-10 col-xl-6 m-lr-auto m-b-50">
+					<div class="bor10 p-lr-40 p-t-30 p-b-40 m-l-63 m-r-40 m-lr-0-xl p-lr-15-sm">
+                     						<h4 class="mtext-105 cl2 txt-center p-b-30">
+							Define Category
+						</h4>
+
+						<b> Dress code</b>  <div class="bor8 m-b-20 how-pos4-parent">
+							<input class="stext-111 cl2 plh3 size-116 p-l-62 p-r-30" type="text" name="code" placeholder="TOP/BOTTOM/ETC.">
+
+						</div>
+
+                        <b>Type of wear </b><div class="bor8 m-b-20 how-pos4-parent">
+							<input class="stext-111 cl2 plh3 size-116 p-l-62 p-r-30" type="text" name="type" placeholder="CASUAL/ETHNIC/ETC.">
+
+						</div>
+
+					<!-- Your Description:-<div class="bor8 m-b-30">
+							<textarea class="stext-111 cl2 plh3 size-120 p-lr-28 p-tb-25" name="msg" placeholder="How Can We Help?"></textarea>
+						</div>
+
+						Your Image :-<input class="stext-111 cl2 plh3 size-116 p-l-62 p-r-30" type="file" name="image" placeholder="Your Email Address"> -->
+
+						<button class="flex-c-m stext-101 cl0 size-121 bg3 bor1 hov-btn3 p-lr-15 trans-04 pointer">
+							Submit
+						</button>
+
+					</div>
+				</div>
+			</div>
+		</div>
+	</form>
+{% endblock %}
